@@ -56,7 +56,7 @@ function App() {
             The conversational AI OS
           </h2>
           <div className="row">
-            <div className="col-sm-6 research">
+            <div className="col-md-6 research">
               <a className="project" href="https://agent-supervsior-c4unnrrr4a-uc.a.run.app/">Research</a>
             </div>
             <div className="col-sm-6 imagine">
