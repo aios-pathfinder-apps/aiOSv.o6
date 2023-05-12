@@ -114,3 +114,13 @@ footer {
   color: white;
   height: 100vh;
 }
+
+.project:hover{
+  background-color: var(--secondary-color);
+}
+a{
+  color:var(--secondary-color)!important;
+}
+a:hover{
+  color: var(--branding-color)!important;
+}
