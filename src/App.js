@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import './Home.css';
 import './App.css';
-
+import { AGENT_SUPERVISOR, AGENT_MANAGER, DIGITAL_BRAIN, TRANSLATOR, AIOS_AGENT, FEEDBACK } from './global';
 function App() {
   const [user, setUser] = useState([]);
   const [profile, setProfile] = useState([]);
@@ -57,26 +57,26 @@ function App() {
           </h2>
           <div className="row">
             <div className="col-md-6 research">
-              <a className="project" href="https://agent-supervsior-c4unnrrr4a-uc.a.run.app/">Research</a>
+              <a className="project" href={AGENT_SUPERVISOR}>Research</a>
             </div>
             <div className="col-sm-6 imagine">
-              <a className="project" href="https://agent-manager-c4unnrrr4a-uc.a.run.app/">Imagine</a>
+              <a className="project" href={AGENT_MANAGER}>Imagine</a>
             </div>
             <div className="col-sm-6 remember">
-              <a className="project" href="https://aios-universal-brain-image-i33a22cv3q-uc.a.run.app/">Remember</a>
+              <a className="project" href={DIGITAL_BRAIN}>Remember</a>
             </div>
             <div className="col-sm-6 build">
-              <a className="project" href="https://translator-opfcbv5e7q-wl.a.run.app/process_audio/">Build</a>
+              <a className="project" href={TRANSLATOR}>Build</a>
             </div>
             <div className="col-sm-6 summarize">
-              <a className="project" href="https://aios-agent-c4unnrrr4a-uc.a.run.app/">Summarize</a>
+              <a className="project" href={AIOS_AGENT}>Summarize</a>
             </div>
             <div className="col-sm-6 plus">
               <a className="project" href="#">+</a>
             </div>
             <div className='col-sm-4'></div>
             <div className="col-sm-4 my-5 feedback">
-              <a className="project btn_feedback" href="https://docs.google.com/forms/d/e/1FAIpQLScHIKeRwjO24HwNYKMkNu3bBkE2YeuyXI0dhoFY8B9uuiYriQ/viewform">Feedback</a>
+              <a className="project btn_feedback" href={FEEDBACK}>Feedback</a>
               <button className='btn_feedback mt-2' onClick={logOut}>Log out</button>
             </div>
             <div className='col-sm-4'></div>
