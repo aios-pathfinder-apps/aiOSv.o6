@@ -98,9 +98,8 @@ function App() {
           </h2>
           <div className="box">
             <h3>Login</h3>
-            <input type="email" name="" placeholder="Email" />
-            <input type="password" name="" placeholder="Password" />
-            <button onClick={() => login()}>Google Login</button>
+            <button onClick={() => login()}>Register</button>
+            <button onClick={() => login()}>Login</button>
           </div>
           <footer>
             <p>Copyright 2023 AfterFlea. All rights reserved</p>
