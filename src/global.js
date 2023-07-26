@@ -1,5 +1,5 @@
 module.exports = {
-    CLIENT_ID: '487561976896-1pbgbu4b9kjuj4ig9ieap189pievji3c.apps.googleusercontent.com',
+    CLIENT_ID: '356693472207-tjqcuje1bmtcs5jpdk08f6ol7j81p302.apps.googleusercontent.com',
     AGENT_SUPERVISOR:"https://agent-supervsior-lvija5gn3q-uc.a.run.app/",
     AGENT_MANAGER: "https://aios-pathfinder-image-lvija5gn3q-uc.a.run.app/",
     DIGITAL_BRAIN: "https://digitalbrain-2imn7pfmma-uc.a.run.app/",
