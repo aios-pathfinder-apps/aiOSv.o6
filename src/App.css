@@ -115,12 +115,35 @@ footer {
   height: 100vh;
 }
 
-.project:hover{
-  background-color: var(--secondary-color);
-}
 a{
   color:var(--secondary-color)!important;
 }
+.project:hover{
+  background-color: var(--secondary-color);
+}
 a:hover{
   color: var(--branding-color)!important;
+}
+
+.project, a {
+  position: relative; /* Set position to relative so the ::before pseudo-element can be positioned correctly */
+}
+.project:hover::before,
+a:hover::before {
+  content: ''; /* This creates the pseudo-element */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the pseudo-element */
+  width: 100px; /* Adjust the width and height to fit your animation's size */
+  height: 100px;
+  background-color: transparent; /* Remove any default background-color */
+  z-index: 1; /* Ensure the pseudo-element is above other content */
+}
+.project:hover::before {
+  background-image: url('../public/animations/buildAnimation.json');
+}
+
+a:hover::before {
+  background-image: url('../public/animations/buildAnimation.json');
 }
