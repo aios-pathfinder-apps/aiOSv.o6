@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import bodymovin from 'lottie-web'; // Import the Lottie library
+import React, { useState, useEffect, useRef } from 'react';
+import Particles from 'particles.js';
 import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,37 +12,6 @@ import { AGENT_SUPERVISOR, AGENT_MANAGER, DIGITAL_BRAIN, TRANSLATOR, AIOS_AGENT,
 const App = () => {
   const [user, setUser] = useState([]);
   const [profile, setProfile] = useState([]);
-
-  useEffect(() => {
-    // Lottie initialization code goes here
-    const projects = document.querySelectorAll('.project');
-
-    projects.forEach((project) => {
-      // Fetch the animation JSON data with 'responseType' set to 'text'
-      axios.get('/animations/buildAnimations.json', { responseType: 'text' })
-        .then((response) => {
-          const animationData = JSON.parse(response.data); // Parse the response as JSON data
-          const animation = bodymovin.loadAnimation({
-            container: project,
-            renderer: 'svg',
-            loop: false,
-            autoplay: false, // Set to true if you want the animation to start playing immediately on hover
-            animationData, // Use the parsed JSON data for the animation
-          });
-
-          project.addEventListener('mouseenter', () => {
-            animation.play();
-          });
-
-          project.addEventListener('mouseleave', () => {
-            animation.stop();
-          });
-        })
-        .catch((error) => {
-          console.error('Failed to load animation:', error);
-        });
-    });
-  }, []); // The empty dependency array ensures the effect runs only once when the component is mounted
 
   // log out function to log the user out of google and set the profile array to null
 
@@ -58,7 +27,8 @@ const App = () => {
           </h2>
           <div className="row">
             <div className="col-md-6 research col-width">
-              <a className="project" href={AGENT_SUPERVISOR}>Research</a>
+              <a className="project" href={AGENT_SUPERVISOR}>Research
+            </a>
             </div>
             <div className="col-sm-6 imagine col-width">
               <a className="project" href={AGENT_MANAGER}>Imagine</a>
