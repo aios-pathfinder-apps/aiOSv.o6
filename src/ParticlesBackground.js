@@ -27,7 +27,7 @@ const ParticlesBackground = () => {
         Particles.destroy();
       }
     };
-  }, []);
+  }, [particlesRef.current]);
 
   return <div ref={particlesRef} className="particles-background" />;
 };

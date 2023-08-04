@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import './Home.css';
 import './App.css';
-import ParticlesBackground from './ParticlesBackground';
 import { AGENT_SUPERVISOR, AGENT_MANAGER, DIGITAL_BRAIN, TRANSLATOR, AIOS_AGENT, FEEDBACK } from './global';
 
 const App = () => {
@@ -16,7 +15,6 @@ const App = () => {
 
   return (
     <div>
-      <ParticlesBackground />
       {profile ? (
         <div className="container-fluid homepage">
           <h1>
