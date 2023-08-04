@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Particles from 'particles.js';
 import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import './Home.css';
 import './App.css';
+import ParticlesBackground from './ParticlesBackground';
 import { AGENT_SUPERVISOR, AGENT_MANAGER, DIGITAL_BRAIN, TRANSLATOR, AIOS_AGENT, FEEDBACK } from './global';
-
 
 const App = () => {
   const [user, setUser] = useState([]);
@@ -17,6 +16,7 @@ const App = () => {
 
   return (
     <div>
+      <ParticlesBackground />
       {profile ? (
         <div className="container-fluid homepage">
           <h1>
