@@ -1,15 +1,24 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
+import 'particles.js/particles';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import './Home.css';
 import './App.css';
 import { AGENT_SUPERVISOR, AGENT_MANAGER, DIGITAL_BRAIN, TRANSLATOR, AIOS_AGENT, FEEDBACK } from './global';
 
+const particlesJS = window.particlesJS;
+
 const App = () => {
   const [user, setUser] = useState([]);
   const [profile, setProfile] = useState([]);
+
+  useEffect(() => {
+    particlesJS.load('particles-js', './particles.json', function() {
+      console.log('callback - particles.js config loaded');
+    });
+  }, []);
 
   // log out function to log the user out of google and set the profile array to null
 
