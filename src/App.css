@@ -124,3 +124,7 @@ a{
 a:hover{
   color: var(--branding-color)!important;
 }
+.col-width:hover{
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+}
