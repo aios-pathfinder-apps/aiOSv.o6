@@ -14,6 +14,38 @@ const App = () => {
   const [user, setUser] = useState([]);
   const [profile, setProfile] = useState([]);
 
+  const logOut = () => {
+    googleLogout();
+    setProfile(null);
+  };
+const login = useGoogleLogin({
+  onSuccess: (codeResponse) => setUser(codeResponse),
+  onError: (error) => console.log('Login Failed:', error)
+});
+
+useEffect(
+  () => {
+      if (user) {
+          axios
+              .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
+                  headers: {
+                      Authorization: `Bearer ${user.access_token}`,
+                      Accept: 'application/json'
+                  }
+              })
+              .then((res) => {
+                  setProfile("profile");
+                  console.log(profile);
+              })
+              .catch(error => {
+                console.error('Error:', error);
+                setProfile(null)
+              });
+      }
+  },
+  [ user ]
+);
+
   useEffect(() => {
     particlesJS.load('particles-js', 'particles.json', function() {
       console.log('callback - particles.js config loaded');
@@ -65,7 +97,7 @@ const App = () => {
             </div>
             <div className="col-sm-4 my-5 feedback col-width">
               <a className="project btn_feedback" onClick={(e) => {e.preventDefault(); handleApiCall(FEEDBACK);}}>Feedback</a>
-              {/* <button className='btn_feedback mt-2' onClick={logOut}>Log out</button> */}
+              <button className='btn_feedback mt-2' onClick={logOut}>Log out</button>
             </div>
 
 
@@ -85,8 +117,8 @@ const App = () => {
           </h2>
           <div className="box">
             <h3>Login</h3>
-            {/* <button onClick={() => login()}>Register</button>
-            <button onClick={() => login()}>Login</button> */}
+            <button onClick={() => login()}>Register</button>
+            <button onClick={() => login()}>Login</button>
           </div>
           <footer>
             <p>Copyright 2023 AfterFlea. All rights reserved</p>
