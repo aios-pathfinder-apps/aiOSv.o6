@@ -124,7 +124,9 @@ a{
 a:hover{
   color: var(--branding-color)!important;
 }
-.col-width:hover{
+.col-width:hover{ 
   padding: 10px 20px;
   transition: all 0.3s ease;
 }
+/* For "col-width" if you try to make the transition ease out you will have a screen ripples 
+and bubbling effect from left to right on button elements.*/
