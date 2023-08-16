@@ -18,36 +18,36 @@ const App = () => {
     googleLogout();
     setProfile(null);
   };
-const login = useGoogleLogin({
-  onSuccess: (codeResponse) => setUser(codeResponse),
-  onError: (error) => console.log('Login Failed:', error)
-});
+  const login = useGoogleLogin({
+    onSuccess: (codeResponse) => setUser(codeResponse),
+    onError: (error) => console.log('Login Failed:', error)
+  });
 
-useEffect(
-  () => {
+  useEffect(
+    () => {
       if (user) {
-          axios
-              .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
-                  headers: {
-                      Authorization: `Bearer ${user.access_token}`,
-                      Accept: 'application/json'
-                  }
-              })
-              .then((res) => {
-                  setProfile("profile");
-                  console.log(profile);
-              })
-              .catch(error => {
-                console.error('Error:', error);
-                setProfile(null)
-              });
+        axios
+          .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
+            headers: {
+              Authorization: `Bearer ${user.access_token}`,
+              Accept: 'application/json'
+            }
+          })
+          .then((res) => {
+            setProfile("profile");
+            console.log(profile);
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            setProfile(null)
+          });
       }
-  },
-  [ user ]
-);
+    },
+    [user]
+  );
 
   useEffect(() => {
-    particlesJS.load('particles-js', 'particles.json', function() {
+    particlesJS.load('particles-js', 'particles.json', function () {
       console.log('callback - particles.js config loaded');
     });
   }, []);
@@ -77,26 +77,26 @@ useEffect(
           </h2>
           <div className="row">
             <div className="col-md-6 research col-width">
-              <a className="project" href={AGENT_SUPERVISOR} onClick={(e) => {e.preventDefault(); handleApiCall(AGENT_SUPERVISOR);}}>Research
-            </a>
+              <a className="project" href={AGENT_SUPERVISOR}>Research
+              </a>
             </div>
             <div className="col-sm-6 imagine col-width">
-              <a className="project" href={AGENT_MANAGER} onClick={(e) => {e.preventDefault(); handleApiCall(AGENT_MANAGER);}}>Imagine</a>
+              <a className="project" href={AGENT_MANAGER}>Imagine</a>
             </div>
             <div className="col-sm-6 remember col-width">
-              <a className="project" href={DIGITAL_BRAIN} onClick={(e) => {e.preventDefault(); handleApiCall(DIGITAL_BRAIN);}}>Remember</a>
+              <a className="project" href={DIGITAL_BRAIN} >Remember</a>
             </div>
             <div className="col-sm-6 build col-width">
-              <a className="project" href={TRANSLATOR} onClick={(e) => {e.preventDefault(); handleApiCall(TRANSLATOR);}}>Build</a>
+              <a className="project" href={TRANSLATOR} >Build</a>
             </div>
             <div className="col-sm-6 summarize col-width">
-              <a className="project" href={AIOS_AGENT} onClick={(e) => {e.preventDefault(); handleApiCall(AIOS_AGENT);}}>Summarize</a>
+              <a className="project" href={AIOS_AGENT} >Summarize</a>
             </div>
             <div className="col-sm-6 plus col-width">
               <a className="project" href="#" /*onClick={(e) => {e.preventDefault(); handleApiCall(INSERT ENDPOINT FOR PLUS);}}*/>+</a>
             </div>
             <div className="col-sm-4 my-5 feedback col-width">
-              <a className="project btn_feedback" onClick={(e) => {e.preventDefault(); handleApiCall(FEEDBACK);}}>Feedback</a>
+              <a className="project btn_feedback" >Feedback</a>
               <button className='btn_feedback mt-2' onClick={logOut}>Log out</button>
             </div>
 
