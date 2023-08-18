@@ -14,37 +14,37 @@ const App = () => {
   const [user, setUser] = useState([]);
   const [profile, setProfile] = useState([]);
 
-  const logOut = () => {
-    googleLogout();
-    setProfile(null);
-  };
-  const login = useGoogleLogin({
-    onSuccess: (codeResponse) => setUser(codeResponse),
-    onError: (error) => console.log('Login Failed:', error)
-  });
+   const logOut = () => {
+     googleLogout();
+     setProfile(null);
+   };
+ const login = useGoogleLogin({
+   onSuccess: (codeResponse) => setUser(codeResponse),
+   onError: (error) => console.log('Login Failed:', error)
+ });
 
-  useEffect(
-    () => {
-      if (user) {
-        axios
-          .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
-            headers: {
-              Authorization: `Bearer ${user.access_token}`,
-              Accept: 'application/json'
-            }
-          })
-          .then((res) => {
-            setProfile("profile");
-            console.log(profile);
-          })
-          .catch(error => {
-            console.error('Error:', error);
-            setProfile(null)
-          });
-      }
-    },
-    [user]
-  );
+ useEffect(
+   () => {
+       if (user) {
+           axios
+               .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
+                   headers: {
+                       Authorization: `Bearer ${user.access_token}`,
+                       Accept: 'application/json'
+                   }
+               })
+               .then((res) => {
+                   setProfile("profile");
+                   console.log(profile);
+               })
+               .catch(error => {
+                 console.error('Error:', error);
+                 setProfile(null)
+               });
+       }
+   },
+   [ user ]
+ );
 
   useEffect(() => {
     particlesJS.load('particles-js', 'particles.json', function () {
@@ -67,7 +67,8 @@ const App = () => {
 
   return (
     <div>
-      {profile ? (
+      {/* Remove "profile" and replace with "true" to bypass login page */}
+      {true ? (
         <div className="container-fluid homepage">
           <h1>
             <span>aiOS</span><span>v0.6</span>
