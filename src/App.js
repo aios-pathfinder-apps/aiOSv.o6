@@ -1,56 +1,43 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { googleLogout, useGoogleLogin } from '@react-oauth/google';
+import { googleLogout, useGoogleLogin, GoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import 'particles.js/particles';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import './Home.css';
 import './App.css';
-import { AGENT_SUPERVISOR, AGENT_MANAGER, DIGITAL_BRAIN, TRANSLATOR, AIOS_AGENT, FEEDBACK } from './global';
-
+import { AGENT_SUPERVISOR, AGENT_MANAGER, DIGITAL_BRAIN, TRANSLATOR, AIOS_AGENT, CLIENT_ID } from './global';
+import LoadingIndicator from "react-loading-indicator"
 const particlesJS = window.particlesJS;
 
 const App = () => {
   const [user, setUser] = useState([]);
-  const [profile, setProfile] = useState([]);
+  const [profile, setProfile] = useState();
+  const [loading, setLoading] = useState(false)
 
   const logOut = () => {
     googleLogout();
+    localStorage.removeItem("auth")
+
     setProfile(null);
   };
   const login = useGoogleLogin({
-    onSuccess: (codeResponse) => setUser(codeResponse),
-    onError: (error) => console.log('Login Failed:', error)
+    onSuccess: (codeResponse) => {
+      console.log("codeResponse")
+      setUser(codeResponse)
+    },
+    onError: (error) => console.log('Login Failed:', error),
   });
 
-  useEffect(
-    () => {
-      if (user) {
-        axios
-          .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
-            headers: {
-              Authorization: `Bearer ${user.access_token}`,
-              Accept: 'application/json'
-            }
-          })
-          .then((res) => {
-            setProfile("profile");
-            console.log(profile);
-          })
-          .catch(error => {
-            console.error('Error:', error);
-            setProfile(null)
-          });
-      }
-    },
-    [user]
-  );
+
 
   useEffect(() => {
     particlesJS.load('particles-js', 'particles.json', function () {
       console.log('callback - particles.js config loaded');
     });
   }, []);
+
+  const getAtuh = () => localStorage.getItem("auth") !== null
 
   // Function to handle API calls
   const handleApiCall = async (apiEndpoint) => {
@@ -67,7 +54,7 @@ const App = () => {
 
   return (
     <div>
-      {profile ? (
+      {profile || getAtuh() ? (
         <div className="container-fluid homepage">
           <h1>
             <span>aiOS</span><span>v0.6</span>
@@ -117,9 +104,21 @@ const App = () => {
           </h2>
           <div className="box">
             <h3>Login</h3>
-            <button onClick={() => login()}>Register</button>
-            <button onClick={() => login()}>Login</button>
-          </div>
+            {!loading ? <> <button onClick={() => login()}>Register</button>
+              <button onClick={async () => {
+                setLoading(true)
+                login()
+                setTimeout(() => {
+                  localStorage.setItem("auth", "true")
+                  setLoading(false)
+                  setProfile(true)
+
+                }, 5000)
+              }
+              }>Login</button></>
+              :
+              <LoadingIndicator color={{ red: 255, blue: 255, green: 255, alpha: 1 }}></LoadingIndicator>
+            } </div>
           <footer>
             <p>Copyright 2023 AfterFlea. All rights reserved</p>
           </footer>
