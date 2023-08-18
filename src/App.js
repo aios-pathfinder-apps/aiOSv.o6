@@ -67,7 +67,8 @@ const App = () => {
 
   return (
     <div>
-      {profile ? (
+      {/* Remove "profile" and replace with "true" to bypass login page */}
+      {true ? (
         <div className="container-fluid homepage">
           <h1>
             <span>aiOS</span><span>v0.6</span>

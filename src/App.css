@@ -92,8 +92,6 @@ footer {
   background-color: #6b6b6b;
   padding: 10px;
   color: black;
- 
-  
   }
 
 @media (max-width: 900px) {
@@ -110,9 +108,13 @@ footer {
   }
   }
 .login_body{
+  color: white;
+}
+.box{
   background-color: rgb(34, 34, 34);
   color: white;
-  height: 100vh;
+  height: 32%;
+  width: 20%;
 }
 
 a{
