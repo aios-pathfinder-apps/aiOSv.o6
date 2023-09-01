@@ -11,40 +11,57 @@ import { AGENT_SUPERVISOR, AGENT_MANAGER, DIGITAL_BRAIN, TRANSLATOR, AIOS_AGENT,
 const particlesJS = window.particlesJS;
 
 const App = () => {
-  const [user, setUser] = useState([]);
-  const [profile, setProfile] = useState([]);
+  const [user, setUser] = useState(null);
+  const [profile, setProfile] = useState(null);
+  const [auth, setAuth] = useState(false)
 
-   const logOut = () => {
-     googleLogout();
-     setProfile(null);
-   };
- const login = useGoogleLogin({
-   onSuccess: (codeResponse) => setUser(codeResponse),
-   onError: (error) => console.log('Login Failed:', error)
- });
+  const logOut = () => {
+    googleLogout();
+    localStorage.clear()
+    setAuth(false)
+    setProfile(null);
+  };
 
- useEffect(
-   () => {
-       if (user) {
-           axios
-               .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
-                   headers: {
-                       Authorization: `Bearer ${user.access_token}`,
-                       Accept: 'application/json'
-                   }
-               })
-               .then((res) => {
-                   setProfile("profile");
-                   console.log(profile);
-               })
-               .catch(error => {
-                 console.error('Error:', error);
-                 setProfile(null)
-               });
-       }
-   },
-   [ user ]
- );
+
+
+  const login = useGoogleLogin({
+    onSuccess: (codeResponse) => {
+      localStorage.setItem("accessToken", codeResponse.access_token)
+      setAuth(true)
+      setUser(codeResponse)
+    },
+    onError: (error) => console.log('Login Failed:', error)
+  });
+
+
+  useEffect(() => {
+    const isAuth = typeof localStorage.getItem("accessToken") === "string"
+    if (!isAuth) return
+    setAuth(true)
+  }, [])
+
+  useEffect(
+    () => {
+      if (user) {
+        axios
+          .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
+            headers: {
+              Authorization: `Bearer ${user.access_token}`,
+              Accept: 'application/json'
+            }
+          })
+          .then((res) => {
+            setProfile("profile");
+            console.log(profile);
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            setProfile(null)
+          });
+      }
+    },
+    [user]
+  );
 
   useEffect(() => {
     particlesJS.load('particles-js', 'particles.json', function () {
@@ -65,10 +82,13 @@ const App = () => {
 
   // log out function to log the user out of google and set the profile array to null
 
+
+
+
   return (
     <div>
       {/* Remove "profile" and replace with "true" to bypass login page */}
-      {true ? (
+      {auth ? (
         <div className="container-fluid homepage">
           <h1>
             <span>aiOS</span><span>v0.6</span>
