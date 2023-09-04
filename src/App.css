@@ -29,7 +29,8 @@ h2 {
   z-index: 1;
 }
 .box{
-  width: 500px;
+  width: 550px;
+  height: 400px;
   padding: 60px;
   position: absolute;
   top: 50%;
@@ -113,8 +114,8 @@ footer {
 .box{
   background-color: rgb(34, 34, 34);
   color: white;
-  height: 38%;
-  width: 25%;
+  height: 42%;
+  width: 29%;
 }
 
 a{
