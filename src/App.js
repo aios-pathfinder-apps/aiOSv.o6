@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import './Home.css';
 import './App.css';
-import { AGENT_SUPERVISOR, AGENT_MANAGER, DIGITAL_BRAIN, TRANSLATOR, AIOS_AGENT, FEEDBACK } from './global';
+import { Dashboard, Smart_Employee, Tinder_app, TRANSLATOR, AIOS_AGENT, FEEDBACK } from './global';
 
 const particlesJS = window.particlesJS;
 
@@ -98,26 +98,20 @@ const App = () => {
           </h2>
           <div className="row">
             <div className="col-md-6 research col-width">
-              <a className="project" href={AGENT_SUPERVISOR}>Research
+              <a className="project" href={Smart_Employee}>AI Smart Employee
               </a>
             </div>
             <div className="col-sm-6 imagine col-width">
-              <a className="project" href={AGENT_MANAGER}>Imagine</a>
+              <a className="project" href={Dashboard}>AI Employee Dashboard</a>
             </div>
             <div className="col-sm-6 remember col-width">
-              <a className="project" href={DIGITAL_BRAIN} >Remember</a>
+              <a className="project" href={Tinder_app} >AiOS Niue Chat</a>
             </div>
             <div className="col-sm-6 build col-width">
-              <a className="project" href={TRANSLATOR} >Build</a>
+              <a className="project" href={TRANSLATOR} >+</a>
             </div>
-            <div className="col-sm-6 summarize col-width">
-              <a className="project" href={AIOS_AGENT} >Summarize</a>
-            </div>
-            <div className="col-sm-6 plus col-width">
-              <a className="project" href="#" /*onClick={(e) => {e.preventDefault(); handleApiCall(INSERT ENDPOINT FOR PLUS);}}*/>+</a>
-            </div>
+          
             <div className="col-sm-4 my-5 feedback col-width">
-              <a className="project btn_feedback" >Feedback</a>
               <button className='btn_feedback mt-2' onClick={logOut}>Log out</button>
             </div>
 
