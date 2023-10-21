@@ -1,5 +1,5 @@
 module.exports = {
-    CLIENT_ID: '356693472207-tjqcuje1bmtcs5jpdk08f6ol7j81p302.apps.googleusercontent.com',
+    CLIENT_ID: '290285315396-1hklne287q0qfm8sjqjcpfdpkutfr26r.apps.googleusercontent.com',
     Conflict:"https://styled-conf-xhbphobypa-uc.a.run.app/",
     Psychaid: "https://psychaid-new-xhbphobypa-uc.a.run.app/",
     ChildCare: "https://childsage-new-xhbphobypa-uc.a.run.app/",
