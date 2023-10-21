@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import './Home.css';
 import './App.css';
-import { Dashboard, Smart_Employee, Tinder_app, TRANSLATOR, AIOS_AGENT, FEEDBACK } from './global';
+import { Conflict, Psychaid, ChildCare, ElderCare, AIOS_AGENT, FEEDBACK } from './global';
 
 const particlesJS = window.particlesJS;
 
@@ -98,17 +98,16 @@ const App = () => {
           </h2>
           <div className="row">
             <div className="col-md-6 research col-width">
-              <a className="project" href={Smart_Employee}>AI Smart Employee
-              </a>
+              <a className="project" href={Psychaid}>PsychAid</a>
             </div>
             <div className="col-sm-6 imagine col-width">
-              <a className="project" href={Dashboard}>AI Employee Dashboard</a>
+              <a className="project" href={Conflict}>Conflict Resolution</a>
             </div>
             <div className="col-sm-6 remember col-width">
-              <a className="project" href={Tinder_app} >AiOS Niue Chat</a>
+              <a className="project" href={ChildCare} >ChildCare</a>
             </div>
             <div className="col-sm-6 build col-width">
-              <a className="project" href={TRANSLATOR} >+</a>
+              <a className="project" href={ElderCare} >ElderCare</a>
             </div>
           
             <div className="col-sm-4 my-5 feedback col-width">
