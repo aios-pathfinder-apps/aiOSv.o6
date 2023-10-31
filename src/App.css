@@ -124,6 +124,11 @@ a{
 .project:hover{
   background-color: var(--secondary-color);
 }
+.new-line-text {
+    display: block; /* Ensures the text appears on a new line */
+    font-size: 0.7em; /* Adjust the size as needed, 0.8em is an example */
+    /* You can add more styling here if needed */
+}
 a:hover{
   color: var(--branding-color)!important;
 }
