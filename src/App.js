@@ -30,10 +30,10 @@ const App = () => {
   return (
     <div className="container-fluid homepage">
       <h1>
-        <span>aiOS</span><span>v0.6</span>
+        <span>AiOS LifeSolutions</span>
       </h1>
       <h2 className="mb-5">
-        The conversational AI OS
+        Personal solutions for life's challenges
       </h2>
       <div className="row">
         <div className="col-md-6 research col-width">
