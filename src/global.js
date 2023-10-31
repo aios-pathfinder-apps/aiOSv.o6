@@ -1,7 +1,7 @@
 module.exports = {
     CLIENT_ID: '290285315396-1hklne287q0qfm8sjqjcpfdpkutfr26r.apps.googleusercontent.com',
     Conflict:"https://unityseeker1-xhbphobypa-uc.a.run.app",
-    Psychaid: "https://psychaid-new-xhbphobypa-uc.a.run.app/",
+    Psychaid: "https://mindsoothe-xhbphobypa-uc.a.run.app",
     ChildCare: "https://child-stream-xhbphobypa-uc.a.run.app",
     ElderCare: "https://elder-stream-xhbphobypa-uc.a.run.app/",
     AIOS_AGENT: "https://aios-agent-2imn7pfmma-uc.a.run.app",
