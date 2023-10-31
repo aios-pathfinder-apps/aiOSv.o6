@@ -38,9 +38,6 @@ const App = () => {
       <div className="row">
         <div className="col-md-6 research col-width">
           <a className="project" href={Psychaid}>MindSoothe: AI-driven Self-awareness Analysis</a>
-           <p className="project-description">
-            This is a brief description of the PsychAid project.
-        </p>
         </div>
         <div className="col-sm-6 imagine col-width">
           <a className="project" href={Conflict}>UnitySeeker: Peace & Understanding Made Simple!</a>
