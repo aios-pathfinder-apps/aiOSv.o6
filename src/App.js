@@ -37,16 +37,16 @@ const App = () => {
       </h2>
       <div className="row">
         <div className="col-md-6 research col-width">
-          <a className="project" href={Psychaid}>MindSoothe</a>
+          <a className="project" href={Psychaid}>MindSoothe: AI-driven Self-awareness Analysis</a>
         </div>
         <div className="col-sm-6 imagine col-width">
-          <a className="project" href={Conflict}>UnitySeeker</a>
+          <a className="project" href={Conflict}>UnitySeeker: Peace & Understanding Made Simple!</a>
         </div>
         <div className="col-sm-6 remember col-width">
-          <a className="project" href={ChildCare} >Child Care</a>
+          <a className="project" href={ChildCare} >Child Care: Uncover every child's unique path </a>
         </div>
         <div className="col-sm-6 build col-width">
-          <a className="project" href={ElderCare} >Senior Care</a>
+          <a className="project" href={ElderCare} >Senior Care: Advanced AI Care for Elders</a>
         </div>
       </div>
 
