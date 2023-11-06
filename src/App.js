@@ -37,10 +37,10 @@ const App = () => {
       </h2>
       <div className="row">
         <div className="col-md-6 research col-width">
-          <a className="project" href={Psychaid}>MindSoothe:<div className="new-line-text">  AI-driven Self-awareness Analysis</div></a>
+          <a className="project" href={Psychaid}>Mind Soothe:<div className="new-line-text">  AI-driven Self-awareness Analysis</div></a>
         </div>
         <div className="col-sm-6 imagine col-width">
-          <a className="project" href={Conflict}>UnitySeeker:<div className="new-line-text">Peace & Understanding Made Simple!</div></a>
+          <a className="project" href={Conflict}>Unity Seeker:<div className="new-line-text">Peace & Understanding Made Simple!</div></a>
         </div>
         <div className="col-sm-6 remember col-width">
           <a className="project" href={ChildCare} >Child Care:<div className="new-line-text"> Uncover every child's unique path</div></a>
